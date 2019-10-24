@@ -2,12 +2,15 @@ import React from 'react';
 
 import './App.css';
 
-function App() {
-  return (
-    <div className="appicationWrapper">
-      
-    </div>
-  );
+class App extends React.Component {
+
+  render(){
+    return (
+      <div className="appicationWrapper">
+  
+      </div>
+    )
+  }
 }
 
 export default App;
