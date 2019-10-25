@@ -8,6 +8,7 @@ import { createStructuredSelector } from 'reselect';
 import { selectSiteLogo } from '../../redux/common/common.selectors';
 
 import GuruPortal from '../guru-portal/guru-portal.component';
+import SocialMediaComp from '../social-media/social-media.component';
 
 import './header.styles.scss';
 
@@ -24,11 +25,7 @@ const Header = ({ logo }) => (
                     <NavLink className="nav-link" activeClassName="currentMenuItem" to="/dark-to-light">අඳුරෙන් එළියට</NavLink>
                     <NavLink className="nav-link" activeClassName="currentMenuItem" to="/contact-us">Contact Us</NavLink>
                 </Nav>
-                <Nav className="socialMedia">
-                    <Nav.Item>
-                        
-                    </Nav.Item>
-                </Nav>
+                <SocialMediaComp />
                 <GuruPortal />
             </div>            
         </Navbar>

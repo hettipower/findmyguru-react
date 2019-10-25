@@ -2,6 +2,10 @@ import { commonActionTypes } from './common.types';
 
 const INITIAL_STATE = {
     logo : null,
+    copyrights: null,
+    footerAbout : null,
+    talkToUs : null,
+    socialMedia : null
 }
 
 const commonReducer = ( state = INITIAL_STATE , action ) => {
@@ -10,6 +14,26 @@ const commonReducer = ( state = INITIAL_STATE , action ) => {
             return{
                 ...state,
                 logo : action.payload
+            }
+        case commonActionTypes.SET_COPYRIGHTS:
+            return{
+                ...state,
+                copyrights : action.payload
+            }
+        case commonActionTypes.SET_FOOTER_ABOUT:
+            return{
+                ...state,
+                footerAbout : action.payload
+            }
+        case commonActionTypes.SET_TALK_TO_US:
+            return{
+                ...state,
+                talkToUs : action.payload
+            }
+        case commonActionTypes.SET_SOCIAL_MEDIA:
+            return{
+                ...state,
+                socialMedia : action.payload
             }
         default:
             return state;

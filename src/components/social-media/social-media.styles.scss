@@ -1,0 +1,27 @@
+.socialMedia.nav {
+    margin-right: 0;
+    justify-content: center;
+    font-weight: 400;
+
+    .nav-link {
+        color: #fff;
+        padding: 0 .5rem;
+        font-size: .8rem;
+    }
+
+    &.footerSocial{
+        margin-top: 1.5rem;
+        
+        .nav-link {
+            padding: 0;
+            margin: 0 7px;
+            border: 1px solid #fff;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
