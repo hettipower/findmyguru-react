@@ -8,7 +8,10 @@ import './guru-portal.styles.scss';
 
 const GuruPortal = () => (
     <div className="guruPortalWrap">
-        <span className="guruPortalBtn" style={{ backgroundImage : `url(${portalicon})` }}>
+        <span 
+            className="guruPortalBtn" 
+            style={{ backgroundImage : `url(${portalicon})` }}
+        >
             GURU PORTAL
             <span className="cartIcon" style={{ backgroundImage : `url(${dropdown})` }}></span>
         </span>

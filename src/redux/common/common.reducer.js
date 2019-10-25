@@ -1,7 +1,7 @@
 import { commonActionTypes } from './common.types';
 
 const INITIAL_STATE = {
-    logo : null
+    logo : null,
 }
 
 const commonReducer = ( state = INITIAL_STATE , action ) => {
