@@ -1,0 +1,48 @@
+.guruPortalWrap{
+    position: relative;
+
+    .guruPortalBtn {
+        background-color: #fff;
+        font-weight: 600;
+        color: #575757;
+        border-radius: 33px;
+        border: none;
+        box-shadow: 0 0 0;
+        font-size: .85rem;
+        padding: .5rem 3rem .5rem 3.5rem;
+        background-repeat: no-repeat;
+        background-position: 2% center;
+        position: relative;
+
+        .cartIcon{
+            border: none;
+            width: 12px;
+            height: 8px;
+            position: absolute;
+            margin: auto;
+            right: 5%;
+            top: 0;
+            bottom: 0;
+        }
+    }
+
+    .guruPortalDropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        display: none;
+        float: left;
+        min-width: 10rem;
+        padding: .5rem 0;
+        margin: .125rem 0 0;
+        font-size: 1rem;
+        color: #212529;
+        text-align: left;
+        list-style: none;
+        background-color:  #fff;
+        background-clip: padding-box;
+        border: 1px solid  rgba(0,0,0,.15);
+        border-radius: .25rem;
+    }
+}

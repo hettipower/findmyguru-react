@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import { Link } from 'react-router-dom';
+import { Link , NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -17,18 +17,20 @@ const Header = ({ logo }) => (
             <Link className="logo-container" to="/">
                 <img src={logo} alt="Findmyguru logo" />
             </Link>
-            <Nav className="mainMenu">
-                <Link className="nav-link" to="/">Home</Link>
-                <Link className="nav-link" to="/guru-academy">Guru Academy</Link>
-                <Link className="nav-link" to="/dark-to-light">අඳුරෙන් එළියට</Link>
-                <Link className="nav-link" to="/contact-us">Contact Us</Link>
-            </Nav>
-            <Nav className="socialMedia">
-                <Nav.Item>
-                    
-                </Nav.Item>
-            </Nav>
-            <GuruPortal />
+            <div className="menuContainer">
+                <Nav className="mainMenu">
+                    <NavLink className="nav-link" activeClassName="currentMenuItem" to="/">Home</NavLink>
+                    <NavLink className="nav-link" activeClassName="currentMenuItem" to="/guru-academy">Guru Academy</NavLink>
+                    <NavLink className="nav-link" activeClassName="currentMenuItem" to="/dark-to-light">අඳුරෙන් එළියට</NavLink>
+                    <NavLink className="nav-link" activeClassName="currentMenuItem" to="/contact-us">Contact Us</NavLink>
+                </Nav>
+                <Nav className="socialMedia">
+                    <Nav.Item>
+                        
+                    </Nav.Item>
+                </Nav>
+                <GuruPortal />
+            </div>            
         </Navbar>
     </div>
 );
