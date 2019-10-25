@@ -3,6 +3,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import commonReducer from './common/common.reducer';
+import homeReducer from './home/home.reducer';
 
 const persistConfig = {
     key: 'root',
@@ -11,7 +12,8 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-    commonParams : commonReducer
+    commonParams : commonReducer,
+    home : homeReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);
