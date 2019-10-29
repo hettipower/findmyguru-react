@@ -4,7 +4,7 @@ import { Switch , Route } from 'react-router-dom';
 
 import API from './lib/api';
 
-import { setSiteLogo , setCopyrights , setFooterAbout , setTalkToUs , setSocialMedia } from './redux/common/common.actions';
+import { setSiteLogo , setCopyrights , setFooterAbout , setTalkToUs , setSocialMedia , setAllStreams } from './redux/common/common.actions';
 
 import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
@@ -16,7 +16,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends React.Component {
 
   componentDidMount(){
-    const { setSiteLogo , setCopyrights , setFooterAbout , setTalkToUs , setSocialMedia } = this.props;
+    const { setSiteLogo , setCopyrights , setFooterAbout , setTalkToUs , setSocialMedia , setAllStreams } = this.props;
 
     //Common API
     API.get('common')
@@ -25,7 +25,8 @@ class App extends React.Component {
       setCopyrights(response.data.copyrights);
       setFooterAbout(response.data.footerAbout);
       setTalkToUs(response.data.talkToUs);
-      setSocialMedia(response.data.socialMedia)
+      setSocialMedia(response.data.socialMedia);
+      setAllStreams(response.data.allStreames);
     });
 
   }
@@ -48,7 +49,8 @@ const mapDispatchToProps = dispatch => ({
   setCopyrights : copyrights => dispatch(setCopyrights(copyrights)),
   setFooterAbout : footerAbout => dispatch(setFooterAbout(footerAbout)),
   setTalkToUs : talkToUs => dispatch(setTalkToUs(talkToUs)),
-  setSocialMedia : socialMedia => dispatch(setSocialMedia(socialMedia))
+  setSocialMedia : socialMedia => dispatch(setSocialMedia(socialMedia)),
+  setAllStreams : allStreams => dispatch(setAllStreams(allStreams))
 });
 
 export default connect(null , mapDispatchToProps)(App);

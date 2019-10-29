@@ -26,3 +26,8 @@ export const selectCopyrights = createSelector(
     [selectCommonAPI],
     (commonParams) => commonParams.copyrights
 );
+
+export const selectAllStreams = createSelector(
+    [selectCommonAPI],
+    (commonParams) => commonParams.allStreams
+);

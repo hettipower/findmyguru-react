@@ -5,7 +5,8 @@ const INITIAL_STATE = {
     copyrights: null,
     footerAbout : null,
     talkToUs : null,
-    socialMedia : null
+    socialMedia : null,
+    allStreams : null
 }
 
 const commonReducer = ( state = INITIAL_STATE , action ) => {
@@ -34,6 +35,11 @@ const commonReducer = ( state = INITIAL_STATE , action ) => {
             return{
                 ...state,
                 socialMedia : action.payload
+            }
+        case commonActionTypes.SET_ALL_STREAMS:
+            return{
+                ...state,
+                allStreams : action.payload
             }
         default:
             return state;

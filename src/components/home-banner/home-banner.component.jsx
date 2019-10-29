@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
+import SearchForm from '../search-form/search-form.component';
+
 import { selectHomeBannerUrl , selectWelcomeText } from '../../redux/home/home.selector';
 
 import './home-banner.styles.scss';
@@ -11,7 +13,9 @@ const HomePageBanner = ({ mainBannerUrl , welcomeText }) => (
         <div className="mainBanner" style={{ backgroundImage : `url(${mainBannerUrl})` }}/>
         <div className="searchWrapper">
             <div className="welcomeText text-center" dangerouslySetInnerHTML={{__html : welcomeText}}/>
-            <div className="searchWrap text-center"></div>
+            <div className="searchWrap text-center">
+                <SearchForm />
+            </div>
         </div>
     </div>
 );

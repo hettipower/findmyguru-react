@@ -24,3 +24,8 @@ export const setSocialMedia = socialMedia => ({
     type : commonActionTypes.SET_SOCIAL_MEDIA,
     payload : socialMedia
 });
+
+export const setAllStreams = allStreams => ({
+    type : commonActionTypes.SET_ALL_STREAMS,
+    payload : allStreams
+});
