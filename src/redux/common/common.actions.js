@@ -23,4 +23,4 @@ export const setTalkToUs = talkToUs => ({
 export const setSocialMedia = socialMedia => ({
     type : commonActionTypes.SET_SOCIAL_MEDIA,
     payload : socialMedia
-})
+});
