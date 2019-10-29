@@ -13,6 +13,7 @@ import {
 } from '../../redux/home/home.actions';
 
 import HomePageBanner from '../../components/home-banner/home-banner.component';
+import Services from '../../components/services/services.component';
 
 import './home.styles.scss';
 
@@ -38,6 +39,7 @@ class HomePage extends React.Component {
         return(
             <div className="homePageWrap">
                 <HomePageBanner />
+                <Services />
             </div>
         )
     }
