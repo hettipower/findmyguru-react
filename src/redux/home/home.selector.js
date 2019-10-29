@@ -31,3 +31,23 @@ export const selectTestimonials = createSelector(
     [selectHomeAPI],
     (home) => home.testimonials
 );
+
+export const selectNewestGurus = createSelector(
+    [selectHomeAPI],
+    (home) => home.newestGurus
+);
+
+export const selectGurusCount = createSelector(
+    [selectHomeAPI],
+    (home) => home.gurusCount
+);
+
+export const selectTotalClasses = createSelector(
+    [selectHomeAPI],
+    (home) => home.totalClasses
+);
+
+export const selectTotalVideos = createSelector(
+    [selectHomeAPI],
+    (home) => home.totalVideos
+);

@@ -1,0 +1,29 @@
+.featuresWrap {
+    background-color: #f0f7ff;
+    padding: 4rem 0;
+
+    .container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 40px;
+        padding: 0;
+        max-width: 1300px;
+
+        .feature {
+            border: 1px solid #e6eaef;
+            border-radius: 8px;
+            padding: 5rem 2rem;
+            background-color: #fff;
+            font-weight: 600;
+            color: #666;
+            font-size: .9rem;
+
+            h4 {
+                color: #1e3353;
+                font-weight: 600;
+                font-size: 1.2rem;
+                margin: 1.5rem 0;
+            }
+        }
+    }
+}

@@ -6,7 +6,11 @@ const INITIAL_STATE = {
     services: null,
     counterBannerUrl : null,
     features: null,
-    testimonials: null
+    testimonials: null,
+    newestGurus : null,
+    gurusCount : 0,
+    totalClasses : 0,
+    totalVideos : 0
 }
 
 const homeReducer = ( state = INITIAL_STATE , action ) => {
@@ -40,6 +44,26 @@ const homeReducer = ( state = INITIAL_STATE , action ) => {
             return {
                 ...state,
                 testimonials : action.payload
+            }
+        case homeActionTypes.SET_NEWEST_GURUS:
+            return{
+                ...state,
+                newestGurus : action.payload
+            }
+        case homeActionTypes.SET_GURUS_COUNT:
+            return{
+                ...state,
+                gurusCount : action.payload
+            }
+        case homeActionTypes.SET_TOTAL_CLASSES:
+            return{
+                ...state,
+                totalClasses : action.payload
+            }
+        case homeActionTypes.SET_TOTAL_VIDEOS:
+            return{
+                ...state,
+                totalVideos : action.payload
             }
         default:
             return state;
