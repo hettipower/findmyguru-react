@@ -14,7 +14,9 @@ const HomePageBanner = ({ mainBannerUrl , welcomeText }) => (
         <div className="searchWrapper">
             <div className="welcomeText text-center" dangerouslySetInnerHTML={{__html : welcomeText}}/>
             <div className="searchWrap text-center">
-                <SearchForm />
+                <SearchForm />                
+                <p><strong>OR</strong></p>
+                <p><a href="https://mayaprojects.net/findmyguru/search" class="btn otherBtn">Try Advance Search</a></p>
             </div>
         </div>
     </div>

@@ -27,7 +27,22 @@ export const selectCopyrights = createSelector(
     (commonParams) => commonParams.copyrights
 );
 
-export const selectAllStreams = createSelector(
+export const selectAllSubjects = createSelector(
     [selectCommonAPI],
-    (commonParams) => commonParams.allStreams
+    (commonParams) => commonParams.allSubjects
+);
+
+export const selectAllStreams = createSelector(
+    [selectAllSubjects],
+    allSubjects => Object.keys(allSubjects).map( key => key  )
+);
+
+export const selectAllLocations = createSelector(
+    [selectCommonAPI],
+    (commonParams) => commonParams.allLocations
+);
+
+export const selectAllDistricts = createSelector(
+    [selectAllLocations],
+    allLocations => Object.keys(allLocations).map( key => key  )
 );

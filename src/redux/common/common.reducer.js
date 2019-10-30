@@ -6,7 +6,8 @@ const INITIAL_STATE = {
     footerAbout : null,
     talkToUs : null,
     socialMedia : null,
-    allStreams : null
+    allSubjects : {},
+    allLocations : {}
 }
 
 const commonReducer = ( state = INITIAL_STATE , action ) => {
@@ -39,7 +40,12 @@ const commonReducer = ( state = INITIAL_STATE , action ) => {
         case commonActionTypes.SET_ALL_STREAMS:
             return{
                 ...state,
-                allStreams : action.payload
+                allSubjects : action.payload
+            }
+        case commonActionTypes.SET_ALL_LOCATIONS:
+            return{
+                ...state,
+                allLocations : action.payload
             }
         default:
             return state;

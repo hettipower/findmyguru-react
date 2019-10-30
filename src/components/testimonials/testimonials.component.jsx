@@ -23,7 +23,7 @@ const Testimonials = ({ testimonials }) => (
                     autoplay={true}
                 >
                     {
-                        testimonials.map(testimonial => <div key={testimonial.title} class={`item d-flex justify-content-between flex-wrap align-items-center ${testimonial.class}`}>
+                        testimonials.map(testimonial => <div key={testimonial.title} className={`item d-flex justify-content-between flex-wrap align-items-center ${testimonial.class}`}>
                             <div className="imgWrap" style={{ backgroundImage : `url(${testimonial.imageUrl})` }}></div>
                             <div className="contentWrap">
                                 <h3>{testimonial.title}</h3>

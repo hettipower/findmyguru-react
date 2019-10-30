@@ -28,6 +28,15 @@
         .searchWrap {
             width: 80%;
             margin: 3rem auto 5rem;
+
+            .btn.otherBtn {
+                color: #fff;
+                background-color: #173a3c;
+                box-shadow: 0 0 0;
+                border-radius: 33px;
+                font-weight: 600;
+                padding: .5rem 2rem;
+            }
         }
     }
 }

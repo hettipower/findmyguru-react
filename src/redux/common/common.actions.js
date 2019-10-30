@@ -25,7 +25,12 @@ export const setSocialMedia = socialMedia => ({
     payload : socialMedia
 });
 
-export const setAllStreams = allStreams => ({
+export const setAllSubjects = allSubjects => ({
     type : commonActionTypes.SET_ALL_STREAMS,
-    payload : allStreams
+    payload : allSubjects
+});
+
+export const setAllLocations = allLocations => ({
+    type : commonActionTypes.SET_ALL_LOCATIONS,
+    payload : allLocations
 });
