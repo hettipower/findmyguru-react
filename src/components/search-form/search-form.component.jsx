@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { withRouter } from 'react-router-dom';
 
 import { selectAllStreams , selectAllSubjects , selectAllDistricts } from '../../redux/common/common.selectors';
 
@@ -19,18 +20,31 @@ class SearchForm extends React.Component {
     constructor(){
         super();
         this.state = {
-            selectedSubject : null
+            selectedSubject : null,
+            stream : '',
+            subject : '',
+            district : ''
         }
     }
 
     onChangeStream = (e) => {
         const { subjects } = this.props;
         this.setState({ selectedSubject : subjects[e.target.value] });
+
+        this.setState({ stream : e.target.value });
     }
 
     handleSubmit = async event => {
         event.preventDefault();
-        
+        const { stream , subject , district } = this.state;
+
+        this.props.history.push(`/search/${stream}/${subject}/${district}`);
+    }
+
+    handleChange = event => {
+        const { name , value } = event.target;
+
+        this.setState({ [name] : value });
     }
 
     render(){
@@ -70,6 +84,7 @@ class SearchForm extends React.Component {
                         as="select" 
                         defaultValue="" 
                         name="subject"
+                        onChange={this.handleChange}
                         style={{ backgroundImage : `url(${dropIcon})` }}
                     >
                         <option value="" disabled="">Select Subject</option>
@@ -91,6 +106,7 @@ class SearchForm extends React.Component {
                         as="select" 
                         defaultValue="" 
                         name="district"
+                        onChange={this.handleChange}
                         style={{ backgroundImage : `url(${dropIcon})` }}
                     >
                         <option value="" disabled="">Select Disrict</option>
@@ -116,4 +132,4 @@ const mapStateToProps = createStructuredSelector({
     districts : selectAllDistricts
 });
 
-export default connect(mapStateToProps)(SearchForm);
+export default withRouter(connect(mapStateToProps)(SearchForm));

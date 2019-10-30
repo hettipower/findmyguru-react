@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { Link } from 'react-router-dom';
 
 import SearchForm from '../search-form/search-form.component';
 
@@ -16,7 +17,7 @@ const HomePageBanner = ({ mainBannerUrl , welcomeText }) => (
             <div className="searchWrap text-center">
                 <SearchForm />                
                 <p><strong>OR</strong></p>
-                <p><a href="https://mayaprojects.net/findmyguru/search" class="btn otherBtn">Try Advance Search</a></p>
+                <p><Link className="btn otherBtn" to="/search">Try Advance Search</Link></p>
             </div>
         </div>
     </div>

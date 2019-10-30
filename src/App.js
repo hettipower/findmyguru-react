@@ -9,6 +9,7 @@ import { setSiteLogo , setCopyrights , setFooterAbout , setTalkToUs , setSocialM
 import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
 import HomePage from './pages/home/home.component';
+import SearchPage from './pages/search/search.component';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -38,6 +39,7 @@ class App extends React.Component {
         <Header/>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route path="/search/:stream?/:subject?/:district?" component={SearchPage} />
         </Switch>
         <Footer/>
       </div>
