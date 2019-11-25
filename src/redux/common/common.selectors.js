@@ -46,3 +46,18 @@ export const selectAllDistricts = createSelector(
     [selectAllLocations],
     allLocations => Object.values(allLocations).map( district => district  )
 );
+
+export const selectSearchBanner = createSelector(
+    [selectCommonAPI],
+    (commonParams) => commonParams.searchBanner
+);
+
+export const selectClassCategories = createSelector(
+    [selectCommonAPI],
+    (commonParams) => commonParams.classCategories
+);
+
+export const selectClassCapacities = createSelector(
+    [selectCommonAPI],
+    (commonParams) => commonParams.classCapacities
+);

@@ -1,0 +1,96 @@
+.filterWrap {
+    width: 25%;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: auto;
+
+    .guruFilterForm {
+        background-color: #fff;
+        border: 1px solid #eee;
+        margin-bottom: 1rem;
+
+        .form-group {
+            margin: 0;
+
+            .form-control {
+                min-height: 50px;
+                box-shadow: 0 0 0;
+                border-radius: 0;
+            }
+        }
+    }
+
+    .filterWrapper {
+        background-color: #fff;
+        border: 1px solid #eee;
+
+        h3 {
+            margin: 0;
+            color: #fff;
+            background-color: #00adee;
+            font-weight: 400;
+            font-size: 1.3rem;
+            padding: .75rem 1rem;
+        }
+
+        #filterForm {
+            width: 100%;
+            padding: 1rem;
+
+            label {
+                font-weight: 600;
+                font-size: .9rem;
+            }
+
+            #searchAccordion {
+                margin-bottom: 1rem;
+
+                .card {
+                    border-radius: 0;
+                    -webkit-border-radius: 0;
+                    -moz-border-radius: 0;
+                    -ms-border-radius: 0;
+                    -o-border-radius: 0;
+
+                    .card-header{
+                        padding: 0;
+
+                        a {
+                            text-decoration: none;
+                            width: 100%;
+                            text-align: left;
+                            display: flex;
+                            justify-content: space-between;
+                            color: #000;
+                            font-weight: 600;
+                            padding: .5rem .75rem;
+                            background-color: #eee;
+                            border-radius: 0;
+                            border: none;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .card-body {
+                    select{
+                        -moz-appearance: none;
+                        -webkit-appearance: none;
+                        appearance: none;
+                        background-repeat: no-repeat;
+                        background-position: 97% center;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .btn.submitBtn {
+                background-color: #29b473;
+                border-radius: 33px;
+                padding: .5rem 2.5rem;
+                color: #fff;
+                font-weight: 600;
+            }
+        }
+    }
+}

@@ -34,3 +34,18 @@ export const setAllLocations = allLocations => ({
     type : commonActionTypes.SET_ALL_LOCATIONS,
     payload : allLocations
 });
+
+export const setSearchBanner = searchBanner => ({
+    type : commonActionTypes.SET_SEARCH_BANNER,
+    payload : searchBanner
+});
+
+export const setClassCategories = classCategories => ({
+    type : commonActionTypes.SET_CLASS_CATEGORIES,
+    payload : classCategories
+});
+
+export const setClassCapacities = classCapacities => ({
+    type : commonActionTypes.SET_CLASS_CAPACITIES,
+    payload : classCapacities
+});

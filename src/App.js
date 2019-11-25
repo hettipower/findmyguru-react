@@ -4,7 +4,18 @@ import { Switch , Route } from 'react-router-dom';
 
 import API from './lib/api';
 
-import { setSiteLogo , setCopyrights , setFooterAbout , setTalkToUs , setSocialMedia , setAllSubjects , setAllLocations } from './redux/common/common.actions';
+import { 
+  setSiteLogo , 
+  setCopyrights , 
+  setFooterAbout , 
+  setTalkToUs , 
+  setSocialMedia , 
+  setAllSubjects , 
+  setAllLocations , 
+  setSearchBanner,
+  setClassCategories , 
+  setClassCapacities
+} from './redux/common/common.actions';
 
 import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
@@ -17,7 +28,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends React.Component {
 
   componentDidMount(){
-    const { setSiteLogo , setCopyrights , setFooterAbout , setTalkToUs , setSocialMedia , setAllSubjects , setAllLocations } = this.props;
+    const { 
+      setSiteLogo , 
+      setCopyrights , 
+      setFooterAbout , 
+      setTalkToUs , 
+      setSocialMedia , 
+      setAllSubjects , 
+      setAllLocations , 
+      setSearchBanner ,  
+      setClassCategories , 
+      setClassCapacities 
+    } = this.props;
 
     //Common API
     API.get('common')
@@ -29,6 +51,9 @@ class App extends React.Component {
       setSocialMedia(response.data.socialMedia);
       setAllSubjects(response.data.allSubjects);
       setAllLocations(response.data.allLocations);
+      setSearchBanner(response.data.searchPageBanner);
+      setClassCategories(response.data.allClassCategory);
+      setClassCapacities(response.data.allClassCapacity);
     });
 
   }
@@ -54,7 +79,10 @@ const mapDispatchToProps = dispatch => ({
   setTalkToUs : talkToUs => dispatch(setTalkToUs(talkToUs)),
   setSocialMedia : socialMedia => dispatch(setSocialMedia(socialMedia)),
   setAllSubjects : allSubjects => dispatch(setAllSubjects(allSubjects)),
-  setAllLocations : allLocations => dispatch(setAllLocations(allLocations))
+  setAllLocations : allLocations => dispatch(setAllLocations(allLocations)),
+  setSearchBanner : searchBanner => dispatch(setSearchBanner(searchBanner)),
+  setClassCategories : classCategories => dispatch(setClassCategories(classCategories)),
+  setClassCapacities : classCapacities => dispatch(setClassCapacities(classCapacities))
 });
 
 export default connect(null , mapDispatchToProps)(App);

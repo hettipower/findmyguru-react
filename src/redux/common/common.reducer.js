@@ -7,7 +7,10 @@ const INITIAL_STATE = {
     talkToUs : null,
     socialMedia : null,
     allSubjects : {},
-    allLocations : {}
+    allLocations : {},
+    searchBanner : null,
+    classCategories : null,
+    classCapacities : null
 }
 
 const commonReducer = ( state = INITIAL_STATE , action ) => {
@@ -46,6 +49,21 @@ const commonReducer = ( state = INITIAL_STATE , action ) => {
             return{
                 ...state,
                 allLocations : action.payload
+            }
+        case commonActionTypes.SET_SEARCH_BANNER:
+            return{
+                ...state,
+                searchBanner : action.payload 
+            }
+        case commonActionTypes.SET_CLASS_CATEGORIES:
+            return{
+                ...state,
+                classCategories : action.payload
+            }
+        case commonActionTypes.SET_CLASS_CAPACITIES:
+            return{
+                ...state,
+                classCapacities : action.payload
             }
         default:
             return state;
