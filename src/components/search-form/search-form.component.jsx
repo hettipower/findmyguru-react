@@ -9,6 +9,8 @@ import { withRouter } from 'react-router-dom';
 
 import { selectAllStreams , selectAllSubjects , selectAllDistricts } from '../../redux/common/common.selectors';
 
+import { setStream , setSubject , setDistrict } from '../../redux/search/search.actions';
+
 import './search-form.styles.scss';
 import streamIcon from '../../assets/images/exam-icon.png';
 import locationIcon from '../../assets/images/location.png';
@@ -37,8 +39,13 @@ class SearchForm extends React.Component {
     handleSubmit = async event => {
         event.preventDefault();
         const { stream , subject , district } = this.state;
+        const { setStream , setSubject , setDistrict } = this.props;
 
-        this.props.history.push(`/search/${stream}/${subject}/${district}`);
+        setStream(stream);
+        setSubject(subject);
+        setDistrict(district);
+
+        this.props.history.push(`/search`);
     }
 
     handleChange = event => {
@@ -50,6 +57,7 @@ class SearchForm extends React.Component {
     render(){
         const { allStreamsProps , districts } = this.props;
         const { selectedSubject } = this.state;
+
         return(
             <form className="search-form" onSubmit={this.handleSubmit}>
                 <InputGroup>
@@ -112,7 +120,7 @@ class SearchForm extends React.Component {
                         <option value="" disabled="">Select Disrict</option>
                         {
                             (districts)?
-                            (districts.map( district => <option key={district} value={district}>{district}</option> ))
+                            (districts.map( district => <option key={district.district} value={district.district}>{district.district}</option> ))
                             : ''
                         }
                     </FormControl>
@@ -132,4 +140,10 @@ const mapStateToProps = createStructuredSelector({
     districts : selectAllDistricts
 });
 
-export default withRouter(connect(mapStateToProps)(SearchForm));
+const mapDispatchToProps = dispatch => ({
+    setStream : (stream) => dispatch(setStream(stream)), 
+    setSubject : (subject) => dispatch(setSubject(subject)),
+    setDistrict : (district) => dispatch(setDistrict(district))
+});
+
+export default withRouter(connect(mapStateToProps , mapDispatchToProps)(SearchForm));

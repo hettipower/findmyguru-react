@@ -39,7 +39,7 @@ class App extends React.Component {
         <Header/>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/search/:stream?/:subject?/:district?" component={SearchPage} />
+          <Route path="/search" component={SearchPage} />
         </Switch>
         <Footer/>
       </div>

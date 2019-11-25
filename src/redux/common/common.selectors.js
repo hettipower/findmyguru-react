@@ -44,5 +44,5 @@ export const selectAllLocations = createSelector(
 
 export const selectAllDistricts = createSelector(
     [selectAllLocations],
-    allLocations => Object.keys(allLocations).map( key => key  )
+    allLocations => Object.values(allLocations).map( district => district  )
 );
