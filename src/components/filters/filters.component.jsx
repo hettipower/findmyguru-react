@@ -57,7 +57,8 @@ class Filters extends React.Component {
             setBatch , 
             setMedium , 
             setClassCategory , 
-            setClassCapacity , 
+            setClassCapacity ,
+            setDistrict, 
             setCity , 
             setInstitute , 
             setDay , 
@@ -189,9 +190,9 @@ class Filters extends React.Component {
                                 </Card.Header>
                                 <Accordion.Collapse eventKey="2">
                                     <Card.Body>
-                                        <div class="form-group">
+                                        <div className="form-group">
                                             <select 
-                                                class="form-control" 
+                                                className="form-control" 
                                                 name="class_capacity"
                                                 style={{ backgroundImage : `url(${dropIcon})` }}
                                                 onChange={(e) => setClassCapacity(e.target.value)} 
@@ -213,7 +214,24 @@ class Filters extends React.Component {
                                     <Accordion.Toggle as="a" variant="link" eventKey="3">Location</Accordion.Toggle>
                                 </Card.Header>
                                 <Accordion.Collapse eventKey="3">
-                                    <Card.Body>Hello! I'm another body</Card.Body>
+                                    <Card.Body>
+                                        <div className="form-group">
+                                            <select 
+                                                className="form-control" 
+                                                name="district"
+                                                style={{ backgroundImage : `url(${dropIcon})` }}
+                                                onChange={(e) => setDistrict(e.target.value)} 
+                                            >
+                                                <option value="" disabled selected>District</option>
+                                                <option value="">Any</option>
+                                                {   
+                                                    (districts)?
+                                                    districts.map( district => <option key={district.district} value={district.district}>{district.district}</option> )
+                                                    : ''
+                                                }
+                                            </select>
+                                        </div>
+                                    </Card.Body>
                                 </Accordion.Collapse>
                             </Card>
                             <Card>
@@ -236,7 +254,7 @@ class Filters extends React.Component {
                         <div className="form-group">
                             <div className="custom-control custom-checkbox">
                                 <input type="checkbox" className="custom-control-input" id="school_guru" name="school_guru" value="1" />
-                                <label className="custom-control-label" for="school_guru">Guru is a school teacher</label>
+                                <label className="custom-control-label" htmlFor="school_guru">Guru is a school teacher</label>
                             </div>
                         </div>
                         <div className="form-group text-right">
