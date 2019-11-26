@@ -14,7 +14,8 @@ import {
   setAllLocations , 
   setSearchBanner,
   setClassCategories , 
-  setClassCapacities
+  setClassCapacities , 
+  setInstituteList
 } from './redux/common/common.actions';
 
 import Header from './components/header/header.component';
@@ -38,7 +39,8 @@ class App extends React.Component {
       setAllLocations , 
       setSearchBanner ,  
       setClassCategories , 
-      setClassCapacities 
+      setClassCapacities , 
+      setInstituteList
     } = this.props;
 
     //Common API
@@ -54,6 +56,7 @@ class App extends React.Component {
       setSearchBanner(response.data.searchPageBanner);
       setClassCategories(response.data.allClassCategory);
       setClassCapacities(response.data.allClassCapacity);
+      setInstituteList(response.data.instituteList)
     });
 
   }
@@ -82,7 +85,8 @@ const mapDispatchToProps = dispatch => ({
   setAllLocations : allLocations => dispatch(setAllLocations(allLocations)),
   setSearchBanner : searchBanner => dispatch(setSearchBanner(searchBanner)),
   setClassCategories : classCategories => dispatch(setClassCategories(classCategories)),
-  setClassCapacities : classCapacities => dispatch(setClassCapacities(classCapacities))
+  setClassCapacities : classCapacities => dispatch(setClassCapacities(classCapacities)),
+  setInstituteList : instituteList => dispatch(setInstituteList(instituteList))
 });
 
 export default connect(null , mapDispatchToProps)(App);

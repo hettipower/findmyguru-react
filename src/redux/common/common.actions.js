@@ -49,3 +49,8 @@ export const setClassCapacities = classCapacities => ({
     type : commonActionTypes.SET_CLASS_CAPACITIES,
     payload : classCapacities
 });
+
+export const setInstituteList = instituteList => ({
+    type : commonActionTypes.SET_INSTITUTE_LIST,
+    payload : instituteList
+});

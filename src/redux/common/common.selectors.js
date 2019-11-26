@@ -61,3 +61,8 @@ export const selectClassCapacities = createSelector(
     [selectCommonAPI],
     (commonParams) => commonParams.classCapacities
 );
+
+export const selectInstituteList = createSelector(
+    [selectCommonAPI],
+    (commonParams) => commonParams.instituteList
+);

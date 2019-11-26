@@ -10,7 +10,8 @@ const INITIAL_STATE = {
     allLocations : {},
     searchBanner : null,
     classCategories : null,
-    classCapacities : null
+    classCapacities : null,
+    instituteList : null
 }
 
 const commonReducer = ( state = INITIAL_STATE , action ) => {
@@ -64,6 +65,11 @@ const commonReducer = ( state = INITIAL_STATE , action ) => {
             return{
                 ...state,
                 classCapacities : action.payload
+            }
+        case commonActionTypes.SET_INSTITUTE_LIST:
+            return{
+                ...state,
+                instituteList : action.payload
             }
         default:
             return state;

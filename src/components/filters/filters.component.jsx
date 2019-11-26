@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { selectAllStreams , selectAllSubjects , selectAllDistricts , selectClassCategories , selectClassCapacities } from '../../redux/common/common.selectors';
+import { selectAllStreams , selectAllSubjects , selectAllDistricts , selectClassCategories , selectClassCapacities , selectInstituteList } from '../../redux/common/common.selectors';
 import { selectStream , selectSubject , selectDistrict , selectCity } from '../../redux/search/search.selectors';
 
 import { 
@@ -36,7 +36,9 @@ class Filters extends React.Component {
     constructor(){
         super();
         this.state = {
-            selectedSubject : null
+            selectedSubject : null,
+            selectedCityList : null,
+            selectedInstituteList : null
         }
     }
 
@@ -45,6 +47,23 @@ class Filters extends React.Component {
         this.setState({ selectedSubject : subjects[e.target.value] });
 
         setStream(e.target.value);
+    }
+
+    onChangeDistrict = (e) => {
+        const { districts , setDistrict } = this.props;
+        const cityLists = districts.filter( district => district.district === e.target.value );
+        this.setState({ 
+            selectedCityList : cityLists[0].cities
+        });
+
+        setDistrict(e.target.value);
+    }
+    
+    onChangeCity = (e) => {
+        const { instituteList , setCity } = this.props;
+        this.setState({ selectedInstituteList : instituteList[e.target.value] });
+
+        setCity(e.target.value);
     }
 
     render(){
@@ -58,8 +77,6 @@ class Filters extends React.Component {
             setMedium , 
             setClassCategory , 
             setClassCapacity ,
-            setDistrict, 
-            setCity , 
             setInstitute , 
             setDay , 
             setSession , 
@@ -68,9 +85,10 @@ class Filters extends React.Component {
             setSchoolTeacher , 
             setGuruName 
         } = this.props;
-        const { selectedSubject } = this.state;
+        const { selectedSubject , selectedCityList , selectedInstituteList } = this.state;
         const mediumArr = [ 'English','Sinhala','Tamil' ];
-
+        const weekArr = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+        const sessionArr = ['Morning','Afternoon','Evening','Night'];
 
         return(
             <div className="filterWrap">
@@ -220,13 +238,47 @@ class Filters extends React.Component {
                                                 className="form-control" 
                                                 name="district"
                                                 style={{ backgroundImage : `url(${dropIcon})` }}
-                                                onChange={(e) => setDistrict(e.target.value)} 
+                                                onChange={this.onChangeDistrict} 
                                             >
                                                 <option value="" disabled selected>District</option>
                                                 <option value="">Any</option>
                                                 {   
                                                     (districts)?
                                                     districts.map( district => <option key={district.district} value={district.district}>{district.district}</option> )
+                                                    : ''
+                                                }
+                                            </select>
+                                        </div>
+
+                                        <div className="form-group">
+                                            <select 
+                                                className="form-control"
+                                                name="city"
+                                                style={{ backgroundImage : `url(${dropIcon})` }}
+                                                onChange={this.onChangeCity} 
+                                            >
+                                                <option value="" disabled selected>City</option>
+                                                <option value="">Any</option>
+                                                {
+                                                    (selectedCityList)?
+                                                    (selectedCityList.map( city => <option key={city} value={city}>{city}</option> ))
+                                                    : ''
+                                                }
+                                            </select>
+                                        </div>
+
+                                        <div className="form-group">
+                                            <select 
+                                                className="form-control" 
+                                                name="institute"
+                                                style={{ backgroundImage : `url(${dropIcon})` }}
+                                                onChange={(e) => setInstitute(e.target.value)} 
+                                            >
+                                                <option value="" disabled selected>Institute</option>
+                                                <option value="">Any</option>
+                                                {
+                                                    (selectedInstituteList)?
+                                                    (selectedInstituteList.map( institute => <option key={institute} value={institute}>{institute}</option> ))
                                                     : ''
                                                 }
                                             </select>
@@ -239,7 +291,37 @@ class Filters extends React.Component {
                                     <Accordion.Toggle as="a" variant="link" eventKey="4">Class Time</Accordion.Toggle>
                                 </Card.Header>
                                 <Accordion.Collapse eventKey="4">
-                                    <Card.Body>Hello! I'm another body</Card.Body>
+                                    <Card.Body>
+                                        <div className="form-group">
+                                            <select 
+                                                className="form-control" 
+                                                name="days[]"
+                                                multiple="multiple"
+                                                style={{ backgroundImage : `url(${dropIcon})` }}
+                                                onChange={(e) => setDay(e.target.value)} 
+                                            >
+                                                <option value="">Any</option>
+                                                {
+                                                    weekArr.map( week => <option key={week} value={week}>{week}</option> )
+                                                }
+                                            </select>
+                                        </div>
+
+                                        <div className="form-group">
+                                            <select 
+                                                className="form-control" 
+                                                name="session[]"
+                                                multiple="multiple"
+                                                style={{ backgroundImage : `url(${dropIcon})` }}
+                                                onChange={(e) => setSession(e.target.value)} 
+                                            >
+                                                <option value="">Any</option>
+                                                {
+                                                    sessionArr.map( session => <option key={session} value={session}>{session}</option> )
+                                                }
+                                            </select>
+                                        </div>
+                                    </Card.Body>
                                 </Accordion.Collapse>
                             </Card>
                             <Card>
@@ -253,7 +335,14 @@ class Filters extends React.Component {
                         </Accordion>
                         <div className="form-group">
                             <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="school_guru" name="school_guru" value="1" />
+                                <input 
+                                    type="checkbox" 
+                                    className="custom-control-input" 
+                                    id="school_guru" 
+                                    name="school_guru" 
+                                    value="1"
+                                    onChange={(e) => setSchoolTeacher(e.target.checked)}
+                                />
                                 <label className="custom-control-label" htmlFor="school_guru">Guru is a school teacher</label>
                             </div>
                         </div>
@@ -277,7 +366,8 @@ const mapStateToProps = createStructuredSelector({
     district : selectDistrict,
     city : selectCity,
     classCategories : selectClassCategories , 
-    classCapacities : selectClassCapacities
+    classCapacities : selectClassCapacities , 
+    instituteList : selectInstituteList
 });
 
 const mapDispatchToProps = dispatch => ({
