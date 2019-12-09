@@ -35,7 +35,7 @@ const SearchPage = ({ searchBanner , classes }) => (
                                 category={classItem.classCategory}
                                 medium={classItem.medium}
                                 city={classItem.city}
-                                enroll={classItem.status}
+                                enroll={classItem.classStatus}
                             /> 
                         )
                         : ''
