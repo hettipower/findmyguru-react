@@ -1,0 +1,80 @@
+.guruClass{
+    width: 48%;
+    border: 1px solid #c8c8c8;
+    margin-bottom: 1rem;
+    background-color: #fff;
+
+    .classImg {
+        margin-bottom: 1rem;
+        min-height: 250px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+
+    h3 {
+        font-weight: 500;
+        font-size: 1.3rem;
+
+        a {
+            display: inline-block;
+            width: 100%;
+            padding: 0 1rem;
+            color: #353535;
+            text-decoration: none !important;
+        }
+    }
+
+    .guruName {
+        width: 100%;
+        padding: 0 1rem;
+        font-weight: 600;
+    }
+
+    .subject {
+        padding: 0 1rem;
+        font-size: .9rem;
+        color: #6e6e6e;
+    }
+
+    .classDetails {
+        width: 100%;
+        padding: .5rem 1rem;
+        background-color: #eff6ff;
+        margin: 7px 0;
+        border-top: 1px solid #dfe1e5;
+        border-bottom: 1px solid #dfe1e5;
+
+        .detail {
+            width: 48%;
+            font-size: .9rem;
+            color: #585858;
+            padding: 5px 0;
+            font-weight: 500;
+        }
+    }
+
+    .feesWrap {
+        width: 100%;
+        padding: 0 1rem;
+        margin-top: .5rem;
+        align-items: center;
+        margin-bottom: .5rem;
+
+        .fee {
+            color: #29b473;
+            font-weight: 600;
+            font-size: 1rem;
+            width: 60%;
+        }
+
+        .btn.visitGuru {
+            background-color: #086aff;
+            border-radius: 0;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #fff;
+            font-size: .9rem;
+        }
+    }
+}
