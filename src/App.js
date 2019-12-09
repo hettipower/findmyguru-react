@@ -24,6 +24,7 @@ import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
 import HomePage from './pages/home/home.component';
 import SearchPage from './pages/search/search.component';
+import GuruAccount from './pages/guru-account/guru-account.component';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -80,6 +81,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/search" component={SearchPage} />
+          <Route path="/guru-account" component={GuruAccount} />
         </Switch>
         <Footer/>
       </div>
