@@ -18,6 +18,7 @@ import {
   setInstituteList , 
   setMaxPrice
 } from './redux/common/common.actions';
+import { setClasses } from './redux/classes/classes.actions';
 
 import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
@@ -43,7 +44,8 @@ class App extends React.Component {
       setClassCategories , 
       setClassCapacities , 
       setInstituteList,
-      setMaxPrice
+      setMaxPrice,
+      setClasses
     } = this.props;
 
     //Common API
@@ -61,6 +63,12 @@ class App extends React.Component {
       setClassCapacities(response.data.allClassCapacity);
       setInstituteList(response.data.instituteList);
       setMaxPrice(response.data.maxPrice)
+    });
+
+    //Classes API
+    API.get('classes')
+    .then(function(response){
+      setClasses(response.data);
     });
 
   }
@@ -92,6 +100,7 @@ const mapDispatchToProps = dispatch => ({
   setClassCapacities : classCapacities => dispatch(setClassCapacities(classCapacities)),
   setInstituteList : instituteList => dispatch(setInstituteList(instituteList)),
   setMaxPrice : maxPrice => dispatch(setMaxPrice(maxPrice)),
+  setClasses : classes => dispatch(setClasses(classes)),
 });
 
 export default connect(null , mapDispatchToProps)(App);
