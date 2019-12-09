@@ -74,3 +74,8 @@ export const setSchoolTeacher = schoolTeacher => ({
     type : searchActionTypes.SET_SCHOOL_TEACHER,
     payload : schoolTeacher
 });
+
+export const setSorting = sorting => ({
+    type : searchActionTypes.SET_SORTING,
+    payload : sorting
+});

@@ -76,3 +76,8 @@ export const selectSchoolTeacher = createSelector(
     [selectSearchAPI],
     (search) => search.schoolTeacher
 );
+
+export const selectSorting = createSelector(
+    [selectSearchAPI],
+    (search) => search.sorting
+);

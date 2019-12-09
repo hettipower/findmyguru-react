@@ -14,4 +14,5 @@ export const searchActionTypes = {
     SET_MAX_PRICE : 'SET_MAX_PRICE',
     SET_GURU_NAME : 'SET_GURU_NAME',
     SET_SCHOOL_TEACHER : 'SET_SCHOOL_TEACHER',
+    SET_SORTING : 'SET_SORTING',
 }

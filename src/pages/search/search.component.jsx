@@ -2,15 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
+import { setSorting } from '../../redux/search/search.actions';
+
 import { selectSearchBanner } from '../../redux/common/common.selectors';
 import { selectClasses } from '../../redux/classes/classes.selectors';
+import { selectSorting } from '../../redux/search/search.selectors';
 
 import Filters from "../../components/filters/filters.component";
 import ClassItem from '../../components/class-item/class-item.component';
 
 import './search.styles.scss';
 
-const SearchPage = ({ searchBanner , classes }) => (
+const SearchPage = ({ searchBanner , classes , setSorting , sorting }) => (
     <div className="searchPageWrap">
         <div className="bannerWrap">
             <img src={searchBanner} alt="Search Banner" />
@@ -20,6 +23,23 @@ const SearchPage = ({ searchBanner , classes }) => (
             <div className="container d-flex justify-content-between flex-wrap">
                 <Filters/>
                 <div className="searchResWrapper d-flex justify-content-between flex-wrap">
+                    <div className="sortingOprions d-flex justify-content-between align-items-center">
+                        <div className="count">
+                            Recently Added Classes : 
+                            {
+                                (classes)?
+                                classes.length
+                                : 0
+                            }
+                        </div>
+                        <div className="sorting">
+                            Sorting : 
+                            <div className="btn-group ml-2" role="group" aria-label="SortingGroup">
+                                <span onClick={() => setSorting('ASC')} class={`${ (sorting === 'ASC') ? 'btn-primary' : 'btn-light' } btn`}>Oldest</span>
+                                <span onClick={() => setSorting('DESC')} class={`${ (sorting === 'DESC') ? 'btn-primary' : 'btn-light' } btn`}>Newest</span>
+                            </div>
+                        </div>
+                    </div>
                     {
                         (classes)?
                         classes.map( 
@@ -48,7 +68,12 @@ const SearchPage = ({ searchBanner , classes }) => (
 
 const mapStateToProps = createStructuredSelector({
     searchBanner : selectSearchBanner,
-    classes : selectClasses
-})
+    classes : selectClasses,
+    sorting : selectSorting
+});
 
-export default connect(mapStateToProps)(SearchPage);
+const mapDispatchToProps = dispatch => ({
+    setSorting : sorting => dispatch(setSorting(sorting))
+});
+
+export default connect(mapStateToProps , mapDispatchToProps)(SearchPage);

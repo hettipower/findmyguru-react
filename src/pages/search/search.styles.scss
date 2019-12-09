@@ -36,6 +36,21 @@
                     text-align: center;
                     font-weight: 600;
                 }
+
+                .sortingOprions {
+                    width: 100%;
+                    margin-bottom: 1rem;
+                    background-color: #fff;
+                    padding: .5rem;
+
+                    .btn{
+                        cursor: pointer;
+
+                        .btn-light {
+                            background-color: #eee;
+                        }
+                    }
+                }
             }
         }
     }

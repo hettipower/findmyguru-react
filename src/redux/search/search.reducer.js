@@ -16,6 +16,7 @@ const INITIAL_STATE = {
     maxPrice:null,
     guruName:null,
     schoolTeacher:null,
+    sorting: 'DESC'
 }
 
 const searchReducer = ( state = INITIAL_STATE , action ) => {
@@ -94,6 +95,11 @@ const searchReducer = ( state = INITIAL_STATE , action ) => {
             return{
                 ...state,
                 schoolTeacher : action.payload
+            }
+        case searchActionTypes.SET_SORTING:
+            return{
+                ...state,
+                sorting : action.payload
             }
         default:
             return state;
