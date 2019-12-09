@@ -38,7 +38,7 @@ const SearchPage = ({ searchBanner , classes }) => (
                                 enroll={classItem.classStatus}
                             /> 
                         )
-                        : ''
+                        : <div className="noresults alert alert-primary" role="alert">Sorry! Gurus are still registering on Findmyguru.lk.</div>
                     }
                 </div>
             </div>
