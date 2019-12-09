@@ -1,12 +1,11 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { Select , Slider } from 'antd';
 
-import { selectAllStreams , selectAllSubjects , selectAllDistricts , selectClassCategories , selectClassCapacities , selectInstituteList } from '../../redux/common/common.selectors';
+import { selectAllStreams , selectAllSubjects , selectAllDistricts , selectClassCategories , selectClassCapacities , selectInstituteList , selectMaxPrice } from '../../redux/common/common.selectors';
 import { selectStream , selectSubject , selectDistrict , selectCity } from '../../redux/search/search.selectors';
 
 import { 
@@ -30,6 +29,8 @@ import {
 import dropIcon from '../../assets/images/drop-down.png';
 
 import './filters.styles.scss';
+
+const { Option } = Select;
 
 class Filters extends React.Component {
 
@@ -66,6 +67,12 @@ class Filters extends React.Component {
         setCity(e.target.value);
     }
 
+    onChangePrice = value => {
+        const { setMinPrice , setMaxPrice } = this.props;
+        setMinPrice(value[0]);
+        setMaxPrice(value[1]);
+    };
+
     render(){
         const { 
             allStreamsProps ,
@@ -80,10 +87,9 @@ class Filters extends React.Component {
             setInstitute , 
             setDay , 
             setSession , 
-            setMinPrice , 
-            setMaxPrice , 
             setSchoolTeacher , 
-            setGuruName 
+            setGuruName , 
+            maxPrice
         } = this.props;
         const { selectedSubject , selectedCityList , selectedInstituteList } = this.state;
         const mediumArr = [ 'English','Sinhala','Tamil' ];
@@ -293,33 +299,33 @@ class Filters extends React.Component {
                                 <Accordion.Collapse eventKey="4">
                                     <Card.Body>
                                         <div className="form-group">
-                                            <select 
-                                                className="form-control" 
+                                            <Select
+                                                mode="multiple"
                                                 name="days[]"
-                                                multiple="multiple"
                                                 style={{ backgroundImage : `url(${dropIcon})` }}
-                                                onChange={(e) => setDay(e.target.value)} 
+                                                onChange={setDay} 
+                                                placeholder="Day"
                                             >
-                                                <option value="">Any</option>
+                                                <Option value="">Any</Option>
                                                 {
-                                                    weekArr.map( week => <option key={week} value={week}>{week}</option> )
+                                                    weekArr.map( week => <Option key={week} value={week}>{week}</Option> )
                                                 }
-                                            </select>
+                                            </Select>
                                         </div>
 
                                         <div className="form-group">
-                                            <select 
-                                                className="form-control" 
+                                            <Select 
+                                                mode="multiple" 
                                                 name="session[]"
-                                                multiple="multiple"
                                                 style={{ backgroundImage : `url(${dropIcon})` }}
-                                                onChange={(e) => setSession(e.target.value)} 
+                                                onChange={setSession} 
+                                                placeholder="Session"
                                             >
-                                                <option value="">Any</option>
+                                                <Option value="">Any</Option>
                                                 {
-                                                    sessionArr.map( session => <option key={session} value={session}>{session}</option> )
+                                                    sessionArr.map( session => <Option key={session} value={session}>{session}</Option> )
                                                 }
-                                            </select>
+                                            </Select>
                                         </div>
                                     </Card.Body>
                                 </Accordion.Collapse>
@@ -329,7 +335,18 @@ class Filters extends React.Component {
                                     <Accordion.Toggle as="a" variant="link" eventKey="5">Class fee</Accordion.Toggle>
                                 </Card.Header>
                                 <Accordion.Collapse eventKey="5">
-                                    <Card.Body>Hello! I'm another body</Card.Body>
+                                    <Card.Body>
+                                        <div className="form-group" style={{ padding: '0 1rem' }}>
+                                            <label>Fee Range</label>
+                                            <Slider 
+                                                range 
+                                                defaultValue={[0, 5000]} 
+                                                min={0} 
+                                                max={maxPrice}
+                                                onChange={this.onChangePrice}
+                                            />
+                                        </div>
+                                    </Card.Body>
                                 </Accordion.Collapse>
                             </Card>
                         </Accordion>
@@ -367,7 +384,8 @@ const mapStateToProps = createStructuredSelector({
     city : selectCity,
     classCategories : selectClassCategories , 
     classCapacities : selectClassCapacities , 
-    instituteList : selectInstituteList
+    instituteList : selectInstituteList , 
+    maxPrice : selectMaxPrice
 });
 
 const mapDispatchToProps = dispatch => ({

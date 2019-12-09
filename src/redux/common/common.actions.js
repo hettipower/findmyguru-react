@@ -54,3 +54,8 @@ export const setInstituteList = instituteList => ({
     type : commonActionTypes.SET_INSTITUTE_LIST,
     payload : instituteList
 });
+
+export const setMaxPrice = maxPrice => ({
+    type : commonActionTypes.SET_MAX_PRICE,
+    payload : maxPrice
+});

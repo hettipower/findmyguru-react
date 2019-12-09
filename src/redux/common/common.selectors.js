@@ -66,3 +66,8 @@ export const selectInstituteList = createSelector(
     [selectCommonAPI],
     (commonParams) => commonParams.instituteList
 );
+
+export const selectMaxPrice = createSelector(
+    [selectCommonAPI],
+    (commonParams) => commonParams.maxPrice
+);

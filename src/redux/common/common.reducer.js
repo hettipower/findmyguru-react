@@ -11,7 +11,8 @@ const INITIAL_STATE = {
     searchBanner : null,
     classCategories : null,
     classCapacities : null,
-    instituteList : null
+    instituteList : null,
+    maxPrice : null,
 }
 
 const commonReducer = ( state = INITIAL_STATE , action ) => {
@@ -70,6 +71,11 @@ const commonReducer = ( state = INITIAL_STATE , action ) => {
             return{
                 ...state,
                 instituteList : action.payload
+            }
+        case commonActionTypes.SET_MAX_PRICE:
+            return{
+                ...state,
+                maxPrice : action.payload
             }
         default:
             return state;
