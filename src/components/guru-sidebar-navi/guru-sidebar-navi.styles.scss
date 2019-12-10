@@ -1,0 +1,28 @@
+.guruSidebar{
+    width: 23%;
+
+    .guruProfile {
+        margin-bottom: .5rem;
+        background-color: #fff;
+        border: 1px solid #e8e8e8;
+        border-radius: 7px;
+        padding: 1rem;
+
+        .guruImage {
+            width: 39%;
+            min-height: 100px;
+            background-color: #eee;
+            border-radius: 4px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .guruName {
+            margin-bottom: 0;
+            color: #646464;
+            font-weight: 600;
+            font-size: 1.3rem;
+            width: 57%;
+        }
+    }
+}
