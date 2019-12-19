@@ -35,8 +35,8 @@ const SearchPage = ({ searchBanner , classes , setSorting , sorting }) => (
                         <div className="sorting">
                             Sorting : 
                             <div className="btn-group ml-2" role="group" aria-label="SortingGroup">
-                                <span onClick={() => setSorting('ASC')} class={`${ (sorting === 'ASC') ? 'btn-primary' : 'btn-light' } btn`}>Oldest</span>
-                                <span onClick={() => setSorting('DESC')} class={`${ (sorting === 'DESC') ? 'btn-primary' : 'btn-light' } btn`}>Newest</span>
+                                <span onClick={() => setSorting('ASC')} className={`${ (sorting === 'ASC') ? 'btn-primary' : 'btn-light' } btn`}>Oldest</span>
+                                <span onClick={() => setSorting('DESC')} className={`${ (sorting === 'DESC') ? 'btn-primary' : 'btn-light' } btn`}>Newest</span>
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@ const SearchPage = ({ searchBanner , classes , setSorting , sorting }) => (
                             classItem => 
                             <ClassItem 
                                 key={classItem.ID}
-                                classImage={classItem.classImages[0].imageUrl}
+                                classImage={ (classItem.classImages[0]) ? classItem.classImages[0].imageUrl : ''}
                                 title={classItem.title}
                                 guruName={classItem.guruName}
                                 subject={classItem.subject}

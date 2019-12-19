@@ -6,7 +6,7 @@ import './class-item.styles.scss';
 const ClassItem = ({ classImage , title , guruName , subject , batch , capacity , category , medium , city , enroll }) => (
     <div className="guruClass">
         <div className="classImg" style={{ backgroundImage : `url(${classImage})` }}></div>
-        <h3><Link to="">{title}</Link></h3>
+        <h3><Link to="/">{title}</Link></h3>
         <div className="guruName"><i className="fas fa-user"></i> {guruName}</div>
         <div className="subject d-flex justify-content-between">
             <div className="sub"><i className="fas fa-book"></i> {subject}</div>
@@ -21,7 +21,7 @@ const ClassItem = ({ classImage , title , guruName , subject , batch , capacity 
 
         <div className="feesWrap d-flex justify-content-between">
             <div className="fee">{enroll}</div>
-            <Link className="btn visitGuru">Visit Guru</Link>
+            <Link className="btn visitGuru" to="/">Visit Guru</Link>
         </div>
     </div>
 );

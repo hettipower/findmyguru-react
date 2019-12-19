@@ -16,13 +16,13 @@ const GuruPortal = () => (
             <span className="cartIcon" style={{ backgroundImage : `url(${dropdown})` }}></span>
         </span>
         <div className="guruPortalDropdown">
-            <Link className="dropdown-item" to="/">Guru Login</Link>
-            <Link className="dropdown-item" to="/">Guru Sign Up</Link>
-            <Link className="dropdown-item" to="/">How to become a Guru</Link>
-            <Link className="dropdown-item" to="/">Guru payment plan</Link>
-            <Link className="dropdown-item" to="/">FAQ</Link>
-            <Link className="dropdown-item" to="/">Terms and Conditions</Link>
-            <Link className="dropdown-item" to="/">About Findmyguru.lk</Link>
+            <Link className="dropdown-item" to="/login">Guru Login</Link>
+            <Link className="dropdown-item" to="/register">Guru Sign Up</Link>
+            <Link className="dropdown-item" to="/for-gurus">How to become a Guru</Link>
+            <Link className="dropdown-item" to="/for-gurus">Guru payment plan</Link>
+            <Link className="dropdown-item" to="/for-gurus">FAQ</Link>
+            <Link className="dropdown-item" to="/for-gurus">Terms and Conditions</Link>
+            <Link className="dropdown-item" to="/about-findmyguru-lk">About Findmyguru.lk</Link>
         </div>
     </div>
 );

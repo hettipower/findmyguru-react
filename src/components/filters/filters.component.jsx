@@ -126,8 +126,9 @@ class Filters extends React.Component {
                                                 name="stream"
                                                 onChange={this.onChangeStream}
                                                 style={{ backgroundImage : `url(${dropIcon})` }}
+                                                defaultValue=""
                                             >
-                                                <option value="" disabled selected>Select Stream</option>
+                                                <option value="" disabled>Select Stream</option>
                                                 <option value="">Any</option>
                                                 {
                                                     (allStreamsProps)?
@@ -143,8 +144,9 @@ class Filters extends React.Component {
                                                 name="subject"
                                                 style={{ backgroundImage : `url(${dropIcon})` }}
                                                 onChange={(e) => setSubject(e.target.value)}
+                                                defaultValue=""
                                             >
-                                                <option value="" disabled selected>Subject</option>
+                                                <option value="" disabled>Subject</option>
                                                 <option value="">Any</option>
                                                 {
                                                     (selectedSubject)?
@@ -160,8 +162,9 @@ class Filters extends React.Component {
                                                 name="batch"
                                                 style={{ backgroundImage : `url(${dropIcon})` }}
                                                 onChange={(e) => setBatch(e.target.value)}
+                                                defaultValue=""
                                             >
-                                                <option value="" disabled selected>Batch</option>
+                                                <option value="" disabled>Batch</option>
                                                 <option value="">Any</option>
                                             </select>
                                         </div>
@@ -172,8 +175,9 @@ class Filters extends React.Component {
                                                 name="medium"
                                                 style={{ backgroundImage : `url(${dropIcon})` }}
                                                 onChange={(e) => setMedium(e.target.value)}
+                                                defaultValue=""
                                             >
-                                                <option value="" disabled selected>Medium</option>
+                                                <option value="" disabled>Medium</option>
                                                 <option value="">Any</option>
                                                 {
                                                     mediumArr.map( medium => <option key={medium} value={medium} >{medium}</option> )
@@ -195,8 +199,9 @@ class Filters extends React.Component {
                                                 name="class_category"
                                                 style={{ backgroundImage : `url(${dropIcon})` }}
                                                 onChange={(e) => setClassCategory(e.target.value)} 
+                                                defaultValue=""
                                             >
-                                                <option value="" disabled selected>Class Category</option>
+                                                <option value="" disabled>Class Category</option>
                                                 <option value="">Any</option>
                                                 {   
                                                     (classCategories)?
@@ -220,8 +225,9 @@ class Filters extends React.Component {
                                                 name="class_capacity"
                                                 style={{ backgroundImage : `url(${dropIcon})` }}
                                                 onChange={(e) => setClassCapacity(e.target.value)} 
+                                                defaultValue=""
                                             >
-                                                <option value="" disabled selected>Class Capacity</option>
+                                                <option value="" disabled >Class Capacity</option>
                                                 <option value="">Any</option>
                                                 {   
                                                     (classCapacities)?
@@ -245,8 +251,9 @@ class Filters extends React.Component {
                                                 name="district"
                                                 style={{ backgroundImage : `url(${dropIcon})` }}
                                                 onChange={this.onChangeDistrict} 
+                                                defaultValue=""
                                             >
-                                                <option value="" disabled selected>District</option>
+                                                <option value="" disabled >District</option>
                                                 <option value="">Any</option>
                                                 {   
                                                     (districts)?
@@ -262,8 +269,9 @@ class Filters extends React.Component {
                                                 name="city"
                                                 style={{ backgroundImage : `url(${dropIcon})` }}
                                                 onChange={this.onChangeCity} 
+                                                defaultValue=""
                                             >
-                                                <option value="" disabled selected>City</option>
+                                                <option value="" disabled >City</option>
                                                 <option value="">Any</option>
                                                 {
                                                     (selectedCityList)?
@@ -279,8 +287,9 @@ class Filters extends React.Component {
                                                 name="institute"
                                                 style={{ backgroundImage : `url(${dropIcon})` }}
                                                 onChange={(e) => setInstitute(e.target.value)} 
+                                                defaultValue=""
                                             >
-                                                <option value="" disabled selected>Institute</option>
+                                                <option value="" disabled >Institute</option>
                                                 <option value="">Any</option>
                                                 {
                                                     (selectedInstituteList)?
@@ -338,13 +347,17 @@ class Filters extends React.Component {
                                     <Card.Body>
                                         <div className="form-group" style={{ padding: '0 1rem' }}>
                                             <label>Fee Range</label>
-                                            <Slider 
-                                                range 
-                                                defaultValue={[0, 5000]} 
-                                                min={0} 
-                                                max={maxPrice}
-                                                onChange={this.onChangePrice}
-                                            />
+                                            {
+                                                (maxPrice)?
+                                                <Slider 
+                                                    range 
+                                                    defaultValue={[0, parseInt(maxPrice)]} 
+                                                    min={0} 
+                                                    max={parseInt(maxPrice)}
+                                                    onChange={this.onChangePrice}
+                                                />
+                                                : ''
+                                            }                                            
                                         </div>
                                     </Card.Body>
                                 </Accordion.Collapse>
