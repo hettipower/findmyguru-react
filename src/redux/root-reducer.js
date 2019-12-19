@@ -6,6 +6,7 @@ import commonReducer from './common/common.reducer';
 import homeReducer from './home/home.reducer';
 import searchReducer from './search/search.reducer';
 import classesReducer from './classes/classes.reducer';
+import memberReducer from './member/member.reducer';
 
 const persistConfig = {
     key: 'root',
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
     commonParams : commonReducer,
     home : homeReducer,
     search : searchReducer,
-    classes : classesReducer
+    classes : classesReducer , 
+    member : memberReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);
